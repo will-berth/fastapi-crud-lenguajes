@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de lenguajes de programación</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1 style="text-align: center;">Mi listado</h1>
+    <br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="colgroup">Lenguajes</th>
+                <th scope="colgroup">Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for id in lista %}
+                <tr scope="row">
+                    <td>{{id['nombre']}}</td>
+                    <td>
+                        <a href="/eliminar/{{id['id']}}"><button class="btn btn-danger">Eliminar</button></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            <!-- {% print(lista[0]['nombre']) %} -->
+            <tr scope="row">
+                <form method="POST" action="/add">
+                    <td><input type="text" name="lenguaje" required></td>
+                    <td > <button class="btn btn-primary" type="submit">Agregar Nuevo </button></td>
+                </form>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
