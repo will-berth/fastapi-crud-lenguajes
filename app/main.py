@@ -37,3 +37,12 @@ async def add_language(request:Request, db:Session=Depends(get_db)):
     db.add(languages)
     db.commit()
     return RedirectResponse('/', 303)
+
+@app.get('/eliminar/{lenguaje_id}', response_model=schemas.Respuesta)
+def delete_languages(request:Request, lenguaje_id:int, db:Session=Depends(get_db)):
+    language = db.query(models.Lenguaje).filter_by(id=lenguaje_id).first()
+    print(language)
+    db.delete(language)
+    db.commit()
+    respuesta = schemas.Respuesta(mensaje='Lenguaje eliminado exitosamente')
+    return RedirectResponse('/', 303)
