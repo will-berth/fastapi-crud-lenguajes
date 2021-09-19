@@ -7,6 +7,34 @@
     <title>Listado de lenguajes de programación</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <style>
+        .modal-edit{
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.316);
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card-modal-edit{
+            background-color: white;
+            padding: 30px;
+        }
+        .card-modal-edit > form{
+            display: flex;
+            flex-direction: column;
+        }
+        .name-edit{
+            margin-bottom: 20px;
+        }
+        .id-edit{
+            visibility: hidden;
+        }
+    </style>
 </head>
 <body>
     <h1 style="text-align: center;">Mi listado</h1>
@@ -24,6 +52,7 @@
                     <td>{{id['nombre']}}</td>
                     <td>
                         <a href="/eliminar/{{id['id']}}"><button class="btn btn-danger">Eliminar</button></a>
+                        <a href="/editar/{{id['id']}}"><button class="btn btn-warning">Editar</button></a>
                     </td>
                 </tr>
             {% endfor %}
@@ -36,5 +65,16 @@
             </tr>
         </tbody>
     </table>
+    {% if editar %} 
+        <div class="modal-edit">
+            <div class="card-modal-edit">
+                <form method="POST" action="/editar">
+                    <input class="id-edit" type="text" name="lenguaje-id" value="{{item_edit['id']}}" required>
+                    <input class="name-edit" type="text" name="lenguaje-edit" value="{{item_edit['nombre']}}" required>
+                    <button class="btn btn-primary" type="submit">Editar</button>
+                </form>
+            </div>
+        </div>
+    {% endif %}
 </body>
 </html>
