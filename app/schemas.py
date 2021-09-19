@@ -6,3 +6,6 @@ class Lenguaje(BaseModel):
 
     class Config:
         orm_mode = True
+
+class Respuesta(BaseModel):
+    mensaje:str
