@@ -8,3 +8,6 @@ class Lenguaje(Base):
 
 class TestRemote():
     pass
+
+class TestRemote2():
+    pass
