@@ -23,3 +23,6 @@ class PruebaRemota():
 
 class PruebaRemota2():
     print('Test 2')
+
+class PruebaRemota3():
+    print('Test 3')
