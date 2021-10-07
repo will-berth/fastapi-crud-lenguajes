@@ -11,3 +11,9 @@ class TestRemote():
 
 class TestRemote2():
     pass
+
+class TestLocal():
+    pass
+
+class TestLocal2():
+    pass
