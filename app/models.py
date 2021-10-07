@@ -17,3 +17,6 @@ class TestLocal():
 
 class TestLocal2():
     pass
+
+class PruebaRemota():
+    print('Test 1')
