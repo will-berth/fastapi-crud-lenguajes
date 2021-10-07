@@ -20,3 +20,6 @@ class TestLocal2():
 
 class PruebaRemota():
     print('Test 1')
+
+class PruebaRemota2():
+    print('Test 2')
