@@ -26,3 +26,12 @@ class PruebaRemota2():
 
 class PruebaRemota3():
     print('Test 3')
+
+class PruebaLocal():
+    print('Test Local 1')
+
+class PruebaLocal2():
+    print('Test Local 2')
+
+class PruebaLocal3():
+    print('hola')
